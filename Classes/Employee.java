@@ -3,7 +3,7 @@ package Classes;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Employee extends Person{
+public class Employee extends Person implements Comparable<Employee>{
     private double salary;
     private LocalDate hireDay;
 
@@ -58,5 +58,10 @@ public class Employee extends Person{
         // test whether the fields have identical values
         return  salary == other.salary
                 && Objects.equals(hireDay, other.hireDay);
+    }
+
+    @Override
+    public int compareTo(Employee other) {
+        return Double.compare(salary,other.getSalary());
     }
 }

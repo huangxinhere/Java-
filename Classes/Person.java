@@ -16,4 +16,6 @@ public abstract class Person {
         return getClass().getName()
                 +"[name=" + name + "]";
     }
+
+    public abstract double getSalary();
 }
