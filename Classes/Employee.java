@@ -1,6 +1,7 @@
 package Classes;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Employee extends Person{
     private double salary;
@@ -28,5 +29,34 @@ public class Employee extends Person{
     public void raiseSalary(double byPercent){
         double raise = salary*byPercent/100;
         salary+=raise;
+    }
+
+    public int hashCode(){
+        return Objects.hash(getName(),salary,hireDay);
+        //return 7*Objects.hashCode(name)+...
+    }
+    @Override
+    public String toString(){
+        return super.toString()
+                +"[hireDay=" + hireDay
+                +",salary=" + salary + "]";
+    }
+
+    public boolean equals(Object otherObject){
+        // a quick test to see if the objects are identical
+        if (this == otherObject) return true;
+
+        // must return false if the explicit parameter is null
+        if (otherObject == null) return false;
+
+        // if the classes don't match, they can 't be equal
+        if (getClass()!= otherObject.getClass()) return false;
+
+        // now we know otherObject is a non-null Employee
+        Employee other = (Employee) otherObject;
+
+        // test whether the fields have identical values
+        return  salary == other.salary
+                && Objects.equals(hireDay, other.hireDay);
     }
 }
