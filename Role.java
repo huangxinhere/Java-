@@ -2,6 +2,7 @@ public abstract class Role {
     protected String name;//此处protected子类可以访问超类中的实例域
     protected int age;
     protected String gender;
+    protected String hobby;
 
     public Role(){}//空的构造器，无参构造函dao数的好处在于, 调用该构造器zhi,会用默dao认值去初始化成员.
     //.因为只要创建了有参数的,就只能用有参数的构造函数,而不能用空参数的,所以要创显式创建一个空参数的构造函数.
@@ -10,6 +11,9 @@ public abstract class Role {
         this.name=n;
         this.age=a;
         this.gender=g;
+    }
+    public Role(String hobby){
+        this("hello",1,hobby);
     }
 
     public String getName()
