@@ -1,4 +1,4 @@
-package ExceptionExamples;
+package Errors.ExceptionExamples;
 
 /*
 * 首先，取钱方法（withdraw）声明throw异常，因为可能出错
@@ -6,9 +6,17 @@ package ExceptionExamples;
 * 异常类对象被throw到catch语句块，在块里面取出对象的信息，打印出来
 * */
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class BankDemo {
     public static void main(String[] args)
     {
+        //取消所有日志:它后面的执行代码中的logger才会被取消
+        //Logger.getGlobal().setLevel(Level.OFF);
+        //全局日志记录器
+        Logger.getGlobal().info("I am a logger test...");
+
         CheckingAccount c = new CheckingAccount(101);
         System.out.println("Depositing $500...");
         c.deposit(500.00);

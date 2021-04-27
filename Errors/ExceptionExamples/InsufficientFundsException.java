@@ -1,5 +1,4 @@
-package ExceptionExamples;
-import java.io.*;
+package Errors.ExceptionExamples;
 
 /*
 * 所有异常都必须是 Throwable 的子类
