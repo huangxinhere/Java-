@@ -1,19 +1,21 @@
 package ExceptionExamples;
 import  java.io.*;
 
+//模拟银行账户
 public class CheckingAccount {
+    //余额
     private double balance;
     private int number;
+
     public CheckingAccount(int number){
         this.number = number;
-        //为什么不构造balance的实例？
     }
-
+//方法：存钱
     public void deposit(double amount){
         balance += amount;
     }
-
-    public void withdraw(double amount)throws InsufficientFundsException//在错误可能出现的方法内抛出异常
+//方法：取钱
+    public void withdraw(double amount) throws InsufficientFundsException//在错误可能出现的方法内抛出异常
     {
         if(amount <= balance){
             balance -= amount;
